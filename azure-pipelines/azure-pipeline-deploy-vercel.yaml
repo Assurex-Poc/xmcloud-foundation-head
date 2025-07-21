@@ -8,12 +8,12 @@ resources:
     ref: 'refs/heads/main'
     endpoint: 'Assurex-Poc'
   - repository: aa-web-uat
-    type: git
+    type: github
     name: Assurex-Poc/xmcloud-foundation-head
     ref: 'refs/heads/uat'
     endpoint: Assurex-Poc
   - repository: aa-web-production
-    type: git
+    type: github
     name: Assurex-Poc/xmcloud-foundation-head
     ref: 'refs/heads/production'
     endpoint: Assurex-Poc
