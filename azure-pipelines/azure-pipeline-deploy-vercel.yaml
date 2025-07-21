@@ -6,14 +6,17 @@ resources:
     type: git
     name: aa-web
     ref: 'refs/heads/develop'
+    endpoint: Assurex-Poc
   - repository: aa-web-uat
     type: git
     name: aa-web
     ref: 'refs/heads/uat'
+    endpoint: Assurex-Poc
   - repository: aa-web-production
     type: git
     name: aa-web
     ref: 'refs/heads/production'
+    endpoint: Assurex-Poc
 
 stages:
 - stage: DeployToDevelopment
