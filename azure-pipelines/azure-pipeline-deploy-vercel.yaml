@@ -21,7 +21,7 @@ stages:
     variables:
     - name: sitecore_environment
       value: development
-    - group: 'Release Pipeline Variables - Dev'
+    - group: 'Release Pipeline Variables Dev'
     strategy:
       runOnce:
         deploy:
