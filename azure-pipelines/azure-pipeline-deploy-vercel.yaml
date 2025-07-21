@@ -6,7 +6,7 @@ resources:
     type: github
     name: Assurex-Poc/xmcloud-foundation-head
     ref: 'refs/heads/main'
-  #   endpoint: 'Assurex-Poc'
+    endpoint: 'Assurex-Poc'
   # - repository: aa-web-uat
   #   type: github
   #   name: Assurex-Poc/xmcloud-foundation-head
