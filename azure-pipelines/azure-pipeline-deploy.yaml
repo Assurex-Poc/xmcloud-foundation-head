@@ -2,17 +2,17 @@ trigger: none
 
 resources:
   repositories:
-  - repository: difc-web-dev
+  - repository: aa-web-dev
     type: git
-    name: difc-web
-    ref: 'refs/heads/development'
-  - repository: difc-web-preprod
+    name: aa-web
+    ref: 'refs/heads/develop'
+  - repository: aa-web-uat
     type: git
-    name: difc-web
-    ref: 'refs/heads/pre-prod'
-  - repository: difc-web-production
+    name: aa-web
+    ref: 'refs/heads/uat'
+  - repository: aa-web-production
     type: git
-    name: difc-web
+    name: aa-web
     ref: 'refs/heads/production'
 
 stages:
@@ -33,27 +33,27 @@ stages:
       runOnce:
         deploy:
           steps:
-          - checkout: 'difc-web-dev'
+          - checkout: 'aa-web-dev'
           - template: 'azure-pipeline-step-deploy-xmcloud.yml'
 
-- stage: DeployToPreProd
+- stage: DeployToUAT
   jobs:
-  - deployment: DeployToPreProd
-    displayName: "Deploy to Pre-Prod - XMCloud"
-    environment: 'Pre-Prod'
+  - deployment: DeployToUAT
+    displayName: "Deploy to UAT - XMCloud"
+    environment: 'UAT'
     workspace:
       clean: all
     pool:
       vmImage: 'windows-latest'
     variables:
     - name: sitecore_environment
-      value: preprod
-    - group: 'Release Pipeline Variables - PreProd'
+      value: uat
+    - group: 'Release Pipeline Variables - UAT'
     strategy:
       runOnce:
         deploy:
           steps:
-          - checkout: 'difc-web-preprod'
+          - checkout: 'aa-web-uat'
           - template: 'azure-pipeline-step-deploy-xmcloud.yml'
 
 - stage: DeployToProduction
@@ -73,5 +73,5 @@ stages:
       runOnce:
         deploy:
           steps:
-          - checkout: 'difc-web-production'
+          - checkout: 'aa-web-production'
           - template: 'azure-pipeline-step-deploy-xmcloud.yml'
