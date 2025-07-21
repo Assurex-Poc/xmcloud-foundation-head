@@ -27,4 +27,4 @@ stages:
         deploy:
           steps:
           - checkout: 'aa-web-dev'
-          - template: 'azure-pipelines/azure-pipeline-step-deploy-vercel.yml'
+          - template: 'azure-pipeline-step-deploy-vercel.yml'
