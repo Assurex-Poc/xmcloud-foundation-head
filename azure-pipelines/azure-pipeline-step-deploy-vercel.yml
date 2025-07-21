@@ -11,7 +11,7 @@ steps:
 
 - powershell: |
     npm install
-  workingDirectory: $(System.DefaultWorkingDirectory)/headapps/nextjs-starter
+  workingDirectory: $(System.DefaultWorkingDirectory)
   displayName: 'Run NPM install'
 
 # Build & Deploy frontend Code - Vercel
@@ -19,7 +19,7 @@ steps:
     $deployUrl = vercel --prod --scope $(VERCEL_SCOPE) --token $(VERCEL_DEPLOY_TOKEN)
     echo "$deployUrl"
     echo "##vso[task.setvariable variable=deployUrl]$deployUrl"
-  workingDirectory: $(System.DefaultWorkingDirectory)/headapps/nextjs-starter
+  workingDirectory: $(System.DefaultWorkingDirectory)
   displayName: 'Deploy to Vercel'
 
 # Perform Health Check - frontend
