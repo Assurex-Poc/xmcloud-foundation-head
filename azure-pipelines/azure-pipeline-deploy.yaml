@@ -3,17 +3,10 @@ trigger: none
 resources:
   repositories:
   - repository: aa-web-dev
-    type: git
+    type: github
     name: aa-web
-    ref: 'refs/heads/develop'
-  - repository: aa-web-uat
-    type: git
-    name: aa-web
-    ref: 'refs/heads/uat'
-  - repository: aa-web-production
-    type: git
-    name: aa-web
-    ref: 'refs/heads/production'
+    ref: 'refs/heads/main'
+    endpoint: 'Assurex-Poc'
 
 stages:
 - stage: DeployToDevelopment
@@ -28,50 +21,10 @@ stages:
     variables:
     - name: sitecore_environment
       value: development
-    - group: 'Release Pipeline Variables - Dev'
+    - group: 'Release Pipeline Variables Dev'
     strategy:
       runOnce:
         deploy:
           steps:
           - checkout: 'aa-web-dev'
-          - template: 'azure-pipeline-step-deploy-xmcloud.yml'
-
-- stage: DeployToUAT
-  jobs:
-  - deployment: DeployToUAT
-    displayName: "Deploy to UAT - XMCloud"
-    environment: 'UAT'
-    workspace:
-      clean: all
-    pool:
-      vmImage: 'windows-latest'
-    variables:
-    - name: sitecore_environment
-      value: uat
-    - group: 'Release Pipeline Variables - UAT'
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - checkout: 'aa-web-uat'
-          - template: 'azure-pipeline-step-deploy-xmcloud.yml'
-
-- stage: DeployToProduction
-  jobs:
-  - deployment: DeployToProduction
-    displayName: "Deploy to Production - XMCloud"
-    environment: 'Production'
-    workspace:
-      clean: all
-    pool:
-      vmImage: 'windows-latest'
-    variables:
-    - name: sitecore_environment
-      value: production
-    - group: 'Release Pipeline Variables - Production'
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - checkout: 'aa-web-production'
           - template: 'azure-pipeline-step-deploy-xmcloud.yml'
