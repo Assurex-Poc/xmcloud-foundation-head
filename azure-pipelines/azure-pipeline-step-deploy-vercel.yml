@@ -11,7 +11,7 @@ steps:
 
 - powershell: |
     npm install
-  workingDirectory: $(System.DefaultWorkingDirectory)
+  workingDirectory: '$(System.DefaultWorkingDirectory)/aa-web-dev/headapps/nextjs-starter'
   displayName: 'Run NPM install'
 
 # Build & Deploy frontend Code - Vercel
