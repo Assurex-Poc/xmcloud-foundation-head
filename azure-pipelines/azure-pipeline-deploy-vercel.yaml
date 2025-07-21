@@ -4,7 +4,7 @@ resources:
   repositories:
   - repository: aa-web-dev
     type: git
-    name: Assurex-Poc/xmcloud-foundation-head
+    name: xmcloud-foundation-head
     ref: 'refs/heads/main'
 
 stages:
