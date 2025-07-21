@@ -6,7 +6,6 @@ resources:
     type: git
     name: Assurex-Poc/xmcloud-foundation-head
     ref: 'refs/heads/main'
-    endpoint: Assurex-Poc
 
 stages:
 - stage: DeployToDevelopment
