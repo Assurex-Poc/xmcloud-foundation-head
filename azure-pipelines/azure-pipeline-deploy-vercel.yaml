@@ -5,7 +5,7 @@ resources:
   - repository: aa-web-dev
     type: git
     name: Assurex-Poc/xmcloud-foundation-head
-    ref: 'refs/heads/develop'
+    ref: 'refs/heads/main'
     endpoint: Assurex-Poc
   - repository: aa-web-uat
     type: git
