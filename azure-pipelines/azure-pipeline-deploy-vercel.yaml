@@ -6,17 +6,17 @@ resources:
     type: github
     name: Assurex-Poc/xmcloud-foundation-head
     ref: 'refs/heads/main'
-    endpoint: 'Assurex-Poc'
-  - repository: aa-web-uat
-    type: github
-    name: Assurex-Poc/xmcloud-foundation-head
-    ref: 'refs/heads/uat'
-    endpoint: Assurex-Poc
-  - repository: aa-web-production
-    type: github
-    name: Assurex-Poc/xmcloud-foundation-head
-    ref: 'refs/heads/production'
-    endpoint: Assurex-Poc
+  #   endpoint: 'Assurex-Poc'
+  # - repository: aa-web-uat
+  #   type: github
+  #   name: Assurex-Poc/xmcloud-foundation-head
+  #   ref: 'refs/heads/uat'
+  #   endpoint: Assurex-Poc
+  # - repository: aa-web-production
+  #   type: github
+  #   name: Assurex-Poc/xmcloud-foundation-head
+  #   ref: 'refs/heads/production'
+  #   endpoint: Assurex-Poc
 
 stages:
 - stage: DeployToDevelopment
@@ -39,46 +39,46 @@ stages:
           - checkout: 'aa-web-dev'
           - template: 'azure-pipeline-step-deploy-vercel.yml'
   
-- stage: DeployToUAT
-  dependsOn: DeployToDevelopment
-  jobs:
-  - deployment: DeployToUAT
-    displayName: "Deploy to UAT - Vercel"
-    environment: 'UAT'
-    workspace:
-      clean: all
-    pool:
-      vmImage: 'windows-latest'
-    variables:
-    - name: sitecore_environment
-      value: uat
-    - group: 'Release Pipeline Variables - UAT'
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - checkout: 'aa-web-uat'
-          - template: 'azure-pipeline-step-deploy-vercel.yml'
+# - stage: DeployToUAT
+#   dependsOn: DeployToDevelopment
+#   jobs:
+#   - deployment: DeployToUAT
+#     displayName: "Deploy to UAT - Vercel"
+#     environment: 'UAT'
+#     workspace:
+#       clean: all
+#     pool:
+#       vmImage: 'windows-latest'
+#     variables:
+#     - name: sitecore_environment
+#       value: uat
+#     - group: 'Release Pipeline Variables - UAT'
+#     strategy:
+#       runOnce:
+#         deploy:
+#           steps:
+#           - checkout: 'aa-web-uat'
+#           - template: 'azure-pipeline-step-deploy-vercel.yml'
 
-- stage: DeployToProduction
-  dependsOn:
-  - DeployToDevelopment
-  - DeployToUAT
-  jobs:
-  - deployment: DeployToProduction
-    displayName: "Deploy to Production - Vercel"
-    environment: 'Production'
-    workspace:
-      clean: all
-    pool:
-      vmImage: 'windows-latest'
-    variables:
-    - name: sitecore_environment
-      value: production
-    - group: 'Release Pipeline Variables - Production'
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - checkout: 'aa-web-production'
-          - template: 'azure-pipeline-step-deploy-vercel.yml'
+# - stage: DeployToProduction
+#   dependsOn:
+#   - DeployToDevelopment
+#   - DeployToUAT
+#   jobs:
+#   - deployment: DeployToProduction
+#     displayName: "Deploy to Production - Vercel"
+#     environment: 'Production'
+#     workspace:
+#       clean: all
+#     pool:
+#       vmImage: 'windows-latest'
+#     variables:
+#     - name: sitecore_environment
+#       value: production
+#     - group: 'Release Pipeline Variables - Production'
+#     strategy:
+#       runOnce:
+#         deploy:
+#           steps:
+#           - checkout: 'aa-web-production'
+#           - template: 'azure-pipeline-step-deploy-vercel.yml'
