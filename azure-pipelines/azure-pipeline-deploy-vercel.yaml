@@ -3,7 +3,7 @@ trigger: none
 resources:
   repositories:
   - repository: aa-web-dev
-    type: git
+    type: github
     name: xmcloud-foundation-head
     ref: 'refs/heads/main'
 
