@@ -4,7 +4,7 @@ resources:
   repositories:
   - repository: aa-web-dev
     type: github
-    name: aa-web
+    name: Assurex-Poc/xmcloud-foundation-head
     ref: 'refs/heads/main'
     endpoint: 'Assurex-Poc'
 
