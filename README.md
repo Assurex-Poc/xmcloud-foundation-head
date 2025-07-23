@@ -4,7 +4,7 @@ This repository contains the Next.js Starter Kit, and the SPA Starters monorepo 
 
 ## GitHub Template
 
-This Github repository is a template that can be used to create your own repository. To get started, click the `Use this template` button at the top of the repository.
+This Github repository is a template that can be used to create your own repository.. To get started, click the `Use this template` button at the top of the repository.
 
 ### Prerequisites
 
