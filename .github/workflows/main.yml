@@ -30,4 +30,3 @@ jobs:
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-args: ${{ github.event.inputs.environment == 'production' && '--prod' || '' }}
-          working-directory: ./headapps/nextjs-starter
