@@ -73,8 +73,7 @@
   },
   "scripts": {
     "bootstrap": "ts-node --require dotenv-flow/config --project tsconfig.scripts.json scripts/bootstrap.ts",
-    "prebuild": "mkdir -p scripts/temp",
-    "build": "cross-env NODE_ENV=production npm-run-all --serial prebuild bootstrap next:build",
+    "build": "cross-env NODE_ENV=production npm-run-all --serial bootstrap next:build",
     "install-pre-push-hook": "ts-node --project tsconfig.scripts.json ./scripts/install-pre-push-hook.ts",
     "jss": "jss",
     "lint": "eslint ./src/**/*.tsx ./src/**/*.ts ./scripts/**/*.ts",
