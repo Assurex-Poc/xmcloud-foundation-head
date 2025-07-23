@@ -3,7 +3,8 @@ name: Deploy to Vercel
 on:
   push:
     branches:
-      - main  # or your deployment branch
+      - main  # main or any other branch
+  workflow_dispatch:  # To enable manual trigger
 
 jobs:
   deploy:
